@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Schedule-->
+        <!--Schedule of Events-->
         <scene sceneID="8tR-CI-i6m">
             <objects>
                 <tableViewController id="cAk-KJ-HX3" customClass="EventsScheduleTableViewController" customModule="Greatest_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="cAk-KJ-HX3" id="5J0-gF-A0U"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Schedule" id="UoU-aY-Kk0"/>
+                    <navigationItem key="navigationItem" title="Schedule of Events" id="UoU-aY-Kk0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fuq-CA-xrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="R4B-V0-2fA">
-                                <rect key="frame" x="20" y="129" width="271.5" height="182.5"/>
+                                <rect key="frame" x="20" y="134" width="271.5" height="182.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qwL-jP-299">
                                         <rect key="frame" x="0.0" y="0.0" width="205" height="20.5"/>
@@ -171,7 +171,7 @@
                         <constraints>
                             <constraint firstItem="iCc-fA-E9V" firstAttribute="centerX" secondItem="Yt6-Bq-67Y" secondAttribute="centerX" id="05T-nj-IsX"/>
                             <constraint firstItem="R4B-V0-2fA" firstAttribute="leading" secondItem="Yt6-Bq-67Y" secondAttribute="leading" constant="20" id="6kf-Fy-G5S"/>
-                            <constraint firstItem="R4B-V0-2fA" firstAttribute="top" secondItem="iCc-fA-E9V" secondAttribute="bottom" constant="25" id="AGP-HG-2SX"/>
+                            <constraint firstItem="R4B-V0-2fA" firstAttribute="top" secondItem="iCc-fA-E9V" secondAttribute="bottom" constant="30" id="AGP-HG-2SX"/>
                             <constraint firstItem="iCc-fA-E9V" firstAttribute="top" secondItem="Yt6-Bq-67Y" secondAttribute="top" constant="10" id="DuV-wD-OLn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yt6-Bq-67Y"/>
