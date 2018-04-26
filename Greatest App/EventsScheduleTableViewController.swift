@@ -27,7 +27,7 @@ class EventsScheduleTableViewController: UITableViewController {
 //        events.append(event1)
 //        events.append(event2)
 //        events.append(event3)
-     //   deleteEntireDatabase(collection: "events")
+        //deleteEntireDatabase(collection: "events")
         seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
@@ -35,6 +35,7 @@ class EventsScheduleTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //tableView.reloadData()
+        self.events.removeAll()
         eventsListener = eventsRef.order(by: "time", descending: true).addSnapshotListener({ (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 print("Error fetching events. error: \(error!.localizedDescription)")
