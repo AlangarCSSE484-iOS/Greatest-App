@@ -27,8 +27,8 @@ class EventsScheduleTableViewController: UITableViewController {
 //        events.append(event1)
 //        events.append(event2)
 //        events.append(event3)
-        //deleteEntireDatabase(collection: "events")
-     //   seedDatabase()
+//        deleteEntireDatabase(collection: "events")
+        seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
     
@@ -72,7 +72,7 @@ class EventsScheduleTableViewController: UITableViewController {
                 e.name = modifiedEvent.name
                 e.time = modifiedEvent.time
                 e.location = modifiedEvent.location
-                e.description = modifiedEvent.description
+                e.eventDescription = modifiedEvent.eventDescription
                 break
             }
         }

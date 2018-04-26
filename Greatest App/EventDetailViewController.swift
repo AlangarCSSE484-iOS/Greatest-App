@@ -30,7 +30,7 @@ class EventDetailViewController: UIViewController {
         eventLabel.text = event?.name
         locationLabel.text = event?.location
         timeLabel.text = event?.time
-        descriptionLabel.text = event?.description
+        descriptionLabel.text = event?.eventDescription
         participantInfo.text = "to be figured out later"
         
     }
