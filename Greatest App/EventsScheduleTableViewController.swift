@@ -48,13 +48,19 @@ class EventsScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return max(events.count, 1)
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: eventCellIdentifer, for: indexPath)
-        cell.textLabel?.text = events[indexPath.row].name
+        var cell : UITableViewCell
+        if events.count == 0{
+            cell = tableView.dequeueReusableCell(withIdentifier: noEventCellIdentifier, for: indexPath)
+        }
+        else {
+            cell = tableView.dequeueReusableCell(withIdentifier: eventCellIdentifer, for: indexPath)
+            cell.textLabel?.text = events[indexPath.row].name
+        }
         
         return cell
     }
