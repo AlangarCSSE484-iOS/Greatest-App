@@ -7,40 +7,89 @@
 //
 
 import UIKit
+import Firebase
 
 class EventsScheduleTableViewController: UITableViewController {
+    
+    var eventsRef: CollectionReference!
+    var eventsListener: ListenerRegistration!
     
     let eventCellIdentifer = "EventCell"
     let noEventCellIdentifier = "NoEventCell"
     let showDetailSegueIdentifier = "showDetailSegue"
     var events = [GFEvent]()
     
-    let event1 = GFEvent(name: "Opening Event",
-                         time: "10 pm",
-                         location: "SRC arena",
-                         eventDescription: "get excited for Greatest Floor!")
-    let event2 = GFEvent(name: "Scavenger Hunt",
-                         time: "12 pm",
-                         location: "around campus",
-                         eventDescription: "go find some stuff across campus using vague clues")
-    let event3 = GFEvent(name: "Closing event",
-                         time: "8pm Saturday",
-                         location: "SRC arena",
-                         eventDescription: "you might get to sleep soon")
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        events.append(event1)
-        events.append(event2)
-        events.append(event3)
-        
+//        events.append(event1)
+//        events.append(event2)
+//        events.append(event3)
+        seedDatabase()
+        eventsRef = Firestore.firestore().collection("events")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        //tableView.reloadData()
+        eventsListener = eventsRef.order(by: "time", descending: true).addSnapshotListener({ (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching events. error: \(error!.localizedDescription)")
+                return
+            }
+            snapshot.documentChanges.forEach { (docChange) in
+                if (docChange.type == .added) {
+                    print("New event: \(docChange.document.data())")
+                    self.eventAdded(docChange.document)
+                } else if (docChange.type == .modified) {
+                    print("Edited event: \(docChange.document.data())")
+                    self.eventUpdated(docChange.document)
+                }else if (docChange.type == .removed) {
+                    print("Event deleted: \(docChange.document.data())")
+                    self.eventRemoved(docChange.document)
+                }
+            }
+            self.events.sort(by: { (e1, e2) -> Bool in
+                return e1.time > e2.time
+            })
+            self.tableView.reloadData()
+        })
     }
+    
+    func eventAdded (_ document: DocumentSnapshot) {
+        let newEvent = GFEvent(documentSnapshot: document)
+        events.append(newEvent)
+    }
+    
+    func eventUpdated (_ document: DocumentSnapshot) {
+        let modifiedEvent = GFEvent(documentSnapshot: document)
+        for e in events {
+            if (e.id == modifiedEvent.id){
+                e.name = modifiedEvent.name
+                e.time = modifiedEvent.time
+                e.location = modifiedEvent.location
+                e.eventDescription = modifiedEvent.eventDescription
+                break
+            }
+        }
+    }
+    
+    func eventRemoved (_ document: DocumentSnapshot) {
+        for i in 0..<events.count {
+            if events[i].id == document.documentID {
+                events.remove(at: i)
+                break
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        eventsListener.remove()
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -104,6 +153,39 @@ class EventsScheduleTableViewController: UITableViewController {
             }
         }
      }
+    
+    //Mark: Helper functions to populate database
+    
+    private func seedDatabase() {
+        addDocument(name: "Opening Event",
+                    time: "10 pm",
+                    location: "SRC arena",
+                    eventDescription: "get excited for Greatest Floor!")
+        addDocument(name: "Scavenger Hunt",
+                    time: "12 pm",
+                    location: "around campus",
+                    eventDescription: "go find some stuff across campus using vague clues")
+        addDocument(name: "Closing event",
+                    time: "8pm Saturday",
+                    location: "SRC arena",
+                    eventDescription: "you might get to sleep soon")
+    }
+    
+    private func addDocument(name: String, time: String, location: String, eventDescription:String){
+        var ref: DocumentReference? = nil
+        ref = Firestore.firestore().collection("events").addDocument(data: [
+            "name": name,
+            "time": time,
+            "location": location,
+            "eventDescription": eventDescription
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+    }
     
     
 }
