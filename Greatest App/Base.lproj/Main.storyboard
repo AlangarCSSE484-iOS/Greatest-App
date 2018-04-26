@@ -54,7 +54,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KAy-yG-VAZ" kind="show" id="Nt8-sd-tZo"/>
+                                    <segue destination="KAy-yG-VAZ" kind="show" identifier="showDetailSegue" id="Nt8-sd-tZo"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoEventCell" textLabel="ay4-lH-64q" style="IBUITableViewCellStyleDefault" id="DoE-70-3oh">
@@ -377,6 +377,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yt6-Bq-67Y"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="i7G-t1-z6g" id="BZG-zZ-RBe"/>
+                        <outlet property="locationLabel" destination="2y4-R2-lsf" id="BaZ-su-cst"/>
+                        <outlet property="participantInfo" destination="21O-iE-EHb" id="DhY-g9-s0Z"/>
+                        <outlet property="timeLabel" destination="ZoM-ZM-G7p" id="NBI-Vc-4wc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tro-98-6zZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -384,6 +390,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GAp-5K-J8C"/>
+        <segue reference="Nt8-sd-tZo"/>
     </inferredMetricsTieBreakers>
 </document>
