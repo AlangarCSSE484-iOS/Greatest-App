@@ -72,7 +72,7 @@ class EventsScheduleTableViewController: UITableViewController {
                 e.name = modifiedEvent.name
                 e.time = modifiedEvent.time
                 e.location = modifiedEvent.location
-                e.eventDescription = modifiedEvent.eventDescription
+                e.description = modifiedEvent.description
                 break
             }
         }
