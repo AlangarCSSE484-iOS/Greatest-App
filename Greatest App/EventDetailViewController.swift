@@ -10,6 +10,7 @@ import UIKit
 
 class EventDetailViewController: UIViewController {
     
+    @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var participantInfo: UILabel!
@@ -21,12 +22,12 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
-        print("in detail view controller")
 
         // Do any additional setup after loading the view.
     }
     
     func updateView() {
+        eventLabel.text = event?.name
         locationLabel.text = event?.location
         timeLabel.text = event?.time
         descriptionLabel.text = event?.description

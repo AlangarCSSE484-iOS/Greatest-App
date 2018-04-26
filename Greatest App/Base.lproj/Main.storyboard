@@ -379,6 +379,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="i7G-t1-z6g" id="BZG-zZ-RBe"/>
+                        <outlet property="eventLabel" destination="iCc-fA-E9V" id="meC-KU-jxM"/>
                         <outlet property="locationLabel" destination="2y4-R2-lsf" id="BaZ-su-cst"/>
                         <outlet property="participantInfo" destination="21O-iE-EHb" id="DhY-g9-s0Z"/>
                         <outlet property="timeLabel" destination="ZoM-ZM-G7p" id="NBI-Vc-4wc"/>
