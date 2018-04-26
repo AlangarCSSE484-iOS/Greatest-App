@@ -28,7 +28,7 @@ class EventsScheduleTableViewController: UITableViewController {
 //        events.append(event2)
 //        events.append(event3)
         //deleteEntireDatabase(collection: "events")
-        seedDatabase()
+     //   seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
     
