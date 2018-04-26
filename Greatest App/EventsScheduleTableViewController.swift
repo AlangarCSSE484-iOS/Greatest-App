@@ -27,6 +27,7 @@ class EventsScheduleTableViewController: UITableViewController {
 //        events.append(event1)
 //        events.append(event2)
 //        events.append(event3)
+     //   deleteEntireDatabase(collection: "events")
         seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
@@ -156,6 +157,20 @@ class EventsScheduleTableViewController: UITableViewController {
     
     //Mark: Helper functions to populate database
     
+    private func deleteEntireDatabase(collection: String) {
+        Firestore.firestore().collection(collection).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                return
+            }
+            
+            for document in querySnapshot!.documents {
+                print("Deleting \(document.documentID) => \(document.data())")
+                document.reference.delete()
+            }
+        }
+    }
+    
     private func seedDatabase() {
         addDocument(name: "Opening Event",
                     time: "10 pm",
@@ -186,6 +201,4 @@ class EventsScheduleTableViewController: UITableViewController {
             }
         }
     }
-    
-    
 }
