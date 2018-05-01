@@ -24,11 +24,8 @@ class EventsScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        events.append(event1)
-//        events.append(event2)
-//        events.append(event3)
-//        deleteEntireDatabase(collection: "events")
-//        seedDatabase()
+  //      deleteEntireDatabase(collection: "events")
+        seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
     
@@ -43,7 +40,7 @@ class EventsScheduleTableViewController: UITableViewController {
             }
             snapshot.documentChanges.forEach { (docChange) in
                 if (docChange.type == .added) {
-                    print("New event: \(docChange.document.data())")
+                    print("New event!!!: \(docChange.document.data())")
                     self.eventAdded(docChange.document)
                 } else if (docChange.type == .modified) {
                     print("Edited event: \(docChange.document.data())")
@@ -188,6 +185,7 @@ class EventsScheduleTableViewController: UITableViewController {
     }
     
     private func addDocument(name: String, time: String, location: String, eventDescription:String){
+        print("add Document called with \(name)")
         var ref: DocumentReference? = nil
         ref = Firestore.firestore().collection("events").addDocument(data: [
             "name": name,

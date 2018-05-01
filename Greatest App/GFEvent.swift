@@ -37,10 +37,29 @@ class GFEvent: NSObject {
     init(documentSnapshot: DocumentSnapshot) {
         self.id = documentSnapshot.documentID
         let data = documentSnapshot.data()!
-        self.name = data[nameKey] as! String
-        self.time = data[timeKey] as! String
-        self.location = data[locationKey] as! String
-        self.eventDescription = data[eventDescriptionKey] as! String
+        if (data[nameKey] != nil) {
+            self.name = data[nameKey] as! String
+        } else {
+            self.name = "_"
+        }
+        
+        if (data[timeKey] != nil) {
+            self.time = data[timeKey] as! String
+        } else {
+            self.time = "_"
+        }
+        
+        if (data[locationKey] != nil) {
+            self.location = data[locationKey] as! String
+        } else {
+            self.location = "_"
+        }
+        
+        if (data[eventDescriptionKey] != nil) {
+            self.eventDescription = data[eventDescriptionKey] as! String
+        } else {
+            self.eventDescription = "_"
+        }
         
     }
     
