@@ -19,13 +19,10 @@ class EventsScheduleTableViewController: UITableViewController {
     let showDetailSegueIdentifier = "showDetailSegue"
     var events = [GFEvent]()
     
- 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
   //      deleteEntireDatabase(collection: "events")
-        seedDatabase()
+  //      seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
     
