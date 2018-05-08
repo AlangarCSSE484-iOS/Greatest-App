@@ -18,6 +18,7 @@ class GFEvent: NSObject {
     var minParticipants: Int?
     var maxParticipants: Int?
     var eventDescription: String
+    var eventNumber: Int
     
     let nameKey = "name"
     let timeKey = "time"
@@ -25,22 +26,49 @@ class GFEvent: NSObject {
     let minParticipantsKey = "minParticipantsKey"
     let maxParticipantsKey = "maxParticipantsKey"
     let eventDescriptionKey = "eventDescription"
+    let eventNumberKey = "eventNumber"
     
     
-    init(name: String, time: String, location:String, eventDescription: String) {
+    init(name: String, time: String, location:String, eventDescription: String, eventNumber: Int) {
         self.name = name
         self.time = time
         self.location = location
         self.eventDescription = eventDescription
+        self.eventNumber = eventNumber
     }
     
     init(documentSnapshot: DocumentSnapshot) {
         self.id = documentSnapshot.documentID
         let data = documentSnapshot.data()!
-        self.name = data[nameKey] as! String
-        self.time = data[timeKey] as! String
-        self.location = data[locationKey] as! String
-        self.eventDescription = data[eventDescriptionKey] as! String
+        if (data[nameKey] != nil) {
+            self.name = data[nameKey] as! String
+        } else {
+            self.name = "_"
+        }
+        
+        if (data[timeKey] != nil) {
+            self.time = data[timeKey] as! String
+        } else {
+            self.time = "_"
+        }
+        
+        if (data[locationKey] != nil) {
+            self.location = data[locationKey] as! String
+        } else {
+            self.location = "_"
+        }
+        
+        if (data[eventDescriptionKey] != nil) {
+            self.eventDescription = data[eventDescriptionKey] as! String
+        } else {
+            self.eventDescription = "_"
+        }
+        
+        if (data[eventNumberKey] != nil) {
+            self.eventNumber = data[eventNumberKey] as! Int
+        } else {
+            self.eventNumber = 00
+        }
         
     }
     
@@ -48,7 +76,8 @@ class GFEvent: NSObject {
         return [nameKey: self.name,
                 timeKey: self.time,
                 locationKey: self.location,
-                eventDescriptionKey: self.eventDescription]
+                eventDescriptionKey: self.eventDescription,
+                eventNumberKey: self.eventNumber]
     }
     
 }
