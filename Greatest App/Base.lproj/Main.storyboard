@@ -88,10 +88,46 @@
             </objects>
             <point key="canvasLocation" x="-2791" y="-475"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="20b-rb-hxg">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="t8F-FM-h1X" customClass="LoginViewController" customModule="Greatest_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DrJ-EN-HJt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1D-Oz-Sww" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="112" y="328.5" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="1Hm-Vm-HIH"/>
+                                </constraints>
+                                <state key="normal" title="Login with Rosefire">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="rosefireLogin:" destination="t8F-FM-h1X" eventType="touchUpInside" id="Rxf-XJ-bx6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q1D-Oz-Sww" firstAttribute="centerX" secondItem="BgD-KQ-KGS" secondAttribute="centerX" id="XKS-dP-NPO"/>
+                            <constraint firstItem="q1D-Oz-Sww" firstAttribute="centerY" secondItem="BgD-KQ-KGS" secondAttribute="centerY" id="v87-TP-Cs0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BgD-KQ-KGS"/>
+                    </view>
+                    <connections>
+                        <outlet property="rosefireLoginButton" destination="q1D-Oz-Sww" id="0vv-sx-WHC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rl4-4A-3i3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5694" y="231"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KDC-rW-wCQ">
             <objects>
-                <tabBarController id="kaq-Ln-r9r" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="EventsViewController" id="kaq-Ln-r9r" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oAy-sm-xPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

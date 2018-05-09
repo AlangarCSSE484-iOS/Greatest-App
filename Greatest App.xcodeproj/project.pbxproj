@@ -21,6 +21,7 @@
 		3216FEEF9B872FF03FD1E2F9 /* Pods_Greatest_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F069CE5AEE085989540752 /* Pods_Greatest_App.framework */; };
 		8DB3D1C12098D4090047097F /* ParticipationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1C02098D4090047097F /* ParticipationViewController.swift */; };
 		8DB3D1FB20A1E7580047097F /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FA20A1E7580047097F /* Participant.swift */; };
+		8DB3D1FF20A26B530047097F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FE20A26B530047097F /* LoginViewController.swift */; };
 		8DFA2F812086CC63003483B4 /* EventsScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */; };
 		8DFA2F832086CC8D003483B4 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA2F822086CC8D003483B4 /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		0A583FE12086CE4600AAF495 /* GFEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEvent.swift; sourceTree = "<group>"; };
 		8DB3D1C02098D4090047097F /* ParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationViewController.swift; sourceTree = "<group>"; };
 		8DB3D1FA20A1E7580047097F /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		8DB3D1FE20A26B530047097F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsScheduleTableViewController.swift; sourceTree = "<group>"; };
 		8DFA2F822086CC8D003483B4 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		C3F069CE5AEE085989540752 /* Pods_Greatest_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Greatest_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,7 @@
 				0A583FE12086CE4600AAF495 /* GFEvent.swift */,
 				8DB3D1C02098D4090047097F /* ParticipationViewController.swift */,
 				8DB3D1FA20A1E7580047097F /* Participant.swift */,
+				8DB3D1FE20A26B530047097F /* LoginViewController.swift */,
 			);
 			path = "Greatest App";
 			sourceTree = "<group>";
@@ -197,8 +200,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Greatest App/Pods-Greatest App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Rosefire/Rosefire.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -209,8 +216,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rosefire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -248,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB3D1FF20A26B530047097F /* LoginViewController.swift in Sources */,
 				0A583FE02086CE1700AAF495 /* Floor.swift in Sources */,
 				8DFA2F832086CC8D003483B4 /* EventDetailViewController.swift in Sources */,
 				0A583FC82086C99700AAF495 /* Greatest_App.xcdatamodeld in Sources */,
