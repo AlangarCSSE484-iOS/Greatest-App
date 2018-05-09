@@ -10,17 +10,14 @@
 		0A3D01E92088EAE0006A96F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3D01E82088EADF006A96F8 /* GoogleService-Info.plist */; };
 		0A583FC52086C99700AAF495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FC42086C99700AAF495 /* AppDelegate.swift */; };
 		0A583FC82086C99700AAF495 /* Greatest_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FC62086C99700AAF495 /* Greatest_App.xcdatamodeld */; };
-		0A583FCA2086C99700AAF495 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FC92086C99700AAF495 /* MasterViewController.swift */; };
-		0A583FCC2086C99700AAF495 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FCB2086C99700AAF495 /* DetailViewController.swift */; };
 		0A583FCF2086C99700AAF495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A583FCD2086C99700AAF495 /* Main.storyboard */; };
 		0A583FD12086C99700AAF495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A583FD02086C99700AAF495 /* Assets.xcassets */; };
 		0A583FD42086C99700AAF495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A583FD22086C99700AAF495 /* LaunchScreen.storyboard */; };
-		0A583FDE2086CE0B00AAF495 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FDD2086CE0B00AAF495 /* User.swift */; };
 		0A583FE02086CE1700AAF495 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FDF2086CE1700AAF495 /* Floor.swift */; };
 		0A583FE22086CE4600AAF495 /* GFEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FE12086CE4600AAF495 /* GFEvent.swift */; };
 		3216FEEF9B872FF03FD1E2F9 /* Pods_Greatest_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F069CE5AEE085989540752 /* Pods_Greatest_App.framework */; };
 		8DB3D1C12098D4090047097F /* ParticipationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1C02098D4090047097F /* ParticipationViewController.swift */; };
-		8DB3D1FB20A1E7580047097F /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FA20A1E7580047097F /* Participant.swift */; };
+		8DB3D1FB20A1E7580047097F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FA20A1E7580047097F /* User.swift */; };
 		8DB3D1FF20A26B530047097F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FE20A26B530047097F /* LoginViewController.swift */; };
 		8DFA2F812086CC63003483B4 /* EventsScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */; };
 		8DFA2F832086CC8D003483B4 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA2F822086CC8D003483B4 /* EventDetailViewController.swift */; };
@@ -32,17 +29,14 @@
 		0A583FC12086C99700AAF495 /* Greatest App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greatest App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A583FC42086C99700AAF495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A583FC72086C99700AAF495 /* Greatest_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatest_App.xcdatamodel; sourceTree = "<group>"; };
-		0A583FC92086C99700AAF495 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		0A583FCB2086C99700AAF495 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0A583FCE2086C99700AAF495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A583FD02086C99700AAF495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A583FD32086C99700AAF495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A583FD52086C99700AAF495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A583FDD2086CE0B00AAF495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0A583FDF2086CE1700AAF495 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		0A583FE12086CE4600AAF495 /* GFEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEvent.swift; sourceTree = "<group>"; };
 		8DB3D1C02098D4090047097F /* ParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationViewController.swift; sourceTree = "<group>"; };
-		8DB3D1FA20A1E7580047097F /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		8DB3D1FA20A1E7580047097F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8DB3D1FE20A26B530047097F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsScheduleTableViewController.swift; sourceTree = "<group>"; };
 		8DFA2F822086CC8D003483B4 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -85,8 +79,6 @@
 			children = (
 				0A3D01E82088EADF006A96F8 /* GoogleService-Info.plist */,
 				0A583FC42086C99700AAF495 /* AppDelegate.swift */,
-				0A583FC92086C99700AAF495 /* MasterViewController.swift */,
-				0A583FCB2086C99700AAF495 /* DetailViewController.swift */,
 				0A583FCD2086C99700AAF495 /* Main.storyboard */,
 				0A583FD02086C99700AAF495 /* Assets.xcassets */,
 				0A583FD22086C99700AAF495 /* LaunchScreen.storyboard */,
@@ -94,11 +86,10 @@
 				0A583FC62086C99700AAF495 /* Greatest_App.xcdatamodeld */,
 				8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */,
 				8DFA2F822086CC8D003483B4 /* EventDetailViewController.swift */,
-				0A583FDD2086CE0B00AAF495 /* User.swift */,
 				0A583FDF2086CE1700AAF495 /* Floor.swift */,
 				0A583FE12086CE4600AAF495 /* GFEvent.swift */,
 				8DB3D1C02098D4090047097F /* ParticipationViewController.swift */,
-				8DB3D1FA20A1E7580047097F /* Participant.swift */,
+				8DB3D1FA20A1E7580047097F /* User.swift */,
 				8DB3D1FE20A26B530047097F /* LoginViewController.swift */,
 			);
 			path = "Greatest App";
@@ -265,12 +256,9 @@
 				0A583FC82086C99700AAF495 /* Greatest_App.xcdatamodeld in Sources */,
 				8DFA2F812086CC63003483B4 /* EventsScheduleTableViewController.swift in Sources */,
 				0A583FC52086C99700AAF495 /* AppDelegate.swift in Sources */,
-				0A583FDE2086CE0B00AAF495 /* User.swift in Sources */,
 				0A583FE22086CE4600AAF495 /* GFEvent.swift in Sources */,
-				8DB3D1FB20A1E7580047097F /* Participant.swift in Sources */,
-				0A583FCA2086C99700AAF495 /* MasterViewController.swift in Sources */,
+				8DB3D1FB20A1E7580047097F /* User.swift in Sources */,
 				8DB3D1C12098D4090047097F /* ParticipationViewController.swift in Sources */,
-				0A583FCC2086C99700AAF495 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

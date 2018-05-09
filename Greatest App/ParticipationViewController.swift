@@ -10,15 +10,14 @@ import UIKit
 import Firebase
 
 class ParticipationViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
-    
-    var participationRef: CollectionReference!
-    var participationListener: ListenerRegistration!
+    var usersRef: CollectionReference!
+    var usersListener: ListenerRegistration!
     
     let headerCellIdentifer = "HeaderCell"
     let participationCellIdentifer = "ParticipationCell"
-    var participants = [Participant]()
+    var participants = [User]()
     
-    let currentHall = "Blumberg"
+    let currentUser = Auth.auth().currentUser!
     
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hallLabel: UILabel!
@@ -28,30 +27,33 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hallLabel.text = currentHall
         
-//        participants.append(Participant(name: "Kiana", room: "Blum", participated: true))
-//        participants.append(Participant(name: "Vibha", room: "West 1 Best 1", participated: true))
-//
-        
-    participationRef = Firestore.firestore().collection("participation")
+        usersRef = Firestore.firestore().collection("users")
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.participants.removeAll()
-//        participationListener = participationRef.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
+//        self.participants.removeAll()
+        
+//        let query = usersRef.whereField("uid", isEqualTo: currentUser.uid)
+//        query.getDocuments { (querySnapshot, error) in
 //            guard let snapshot = querySnapshot else {
-//                print("Error fetching events. error: \(error!.localizedDescription)")
+//                print("Error fetching documents: \(error!.localizedDescription)")
 //                return
 //            }
-//        })
+//            snapshot.documentChanges.forEach{(docChange) in
+//                let newUser = User(documentSnapshot: docChange.document)
+//                self.hallLabel.text = newUser.hall
+//        }
+//        }
+        
+        //        participationListener = participationRef.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
+        //            guard let snapshot = querySnapshot else {
+        //                print("Error fetching events. error: \(error!.localizedDescription)")
+        //                return
+        //            }
+        //        })
     }
-    
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        <#code#>
-//    }
     
     // MARK: TableView Information
     
@@ -63,7 +65,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: participationCellIdentifer, for: indexPath)
         }
-    
+        
         return cell
     }
     

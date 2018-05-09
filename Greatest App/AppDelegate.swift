@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         FirebaseApp.configure()
-        
+
         if Auth.auth().currentUser == nil {
             showLoginViewController();
         } else {
             showEventsViewController()
         }
-        window?.makeKeyAndVisible()
+
         return true
     }
     
@@ -50,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "EventsViewController")
     }
 }
-
 
 extension UIViewController {
     var appDelegate : AppDelegate {
