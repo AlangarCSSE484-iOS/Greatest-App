@@ -19,6 +19,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     var participants = [User]()
     
     let currentHall = "Blumberg"
+    var currentUser: User!
     
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hallLabel: UILabel!
@@ -30,13 +31,41 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         super.viewDidLoad()
 //        hallLabel.text = currentHall
         
-    usersRef = Firestore.firestore().collection("users")
+        usersRef = Firestore.firestore().collection("users")
+        let loggedinUser = Auth.auth().currentUser!
+        
+        let query = usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
+        query.getDocuments { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching documents: \(error!.localizedDescription)")
+                return
+            }
+            snapshot.documentChanges.forEach{(docChange) in
+                self.currentUser = User(documentSnapshot: docChange.document)
+                self.hallLabel.text = self.currentUser.hall
+            }
+        }
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.participants.removeAll()
         
+        let currentUser = Auth.auth().currentUser!
+        
+        let query = usersRef.whereField("uid", isEqualTo: currentUser.uid)
+        query.getDocuments { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching documents: \(error!.localizedDescription)")
+                                return
+            }
+            snapshot.documentChanges.forEach{(docChange) in
+                let newUser = User(documentSnapshot: docChange.document)
+                self.hallLabel.text = newUser.hall
+        }
+        }
         
         
 //        participationListener = participationRef.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
