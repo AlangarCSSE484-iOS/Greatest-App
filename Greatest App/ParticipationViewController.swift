@@ -11,12 +11,12 @@ import Firebase
 
 class ParticipationViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
     
-    var participationRef: CollectionReference!
-    var participationListener: ListenerRegistration!
+    var usersRef: CollectionReference!
+    var usersListener: ListenerRegistration!
     
     let headerCellIdentifer = "HeaderCell"
     let participationCellIdentifer = "ParticipationCell"
-    var participants = [Participant]()
+    var participants = [User]()
     
     let currentHall = "Blumberg"
     
@@ -28,18 +28,17 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hallLabel.text = currentHall
+//        hallLabel.text = currentHall
         
-//        participants.append(Participant(name: "Kiana", room: "Blum", participated: true))
-//        participants.append(Participant(name: "Vibha", room: "West 1 Best 1", participated: true))
-//
-        
-    participationRef = Firestore.firestore().collection("participation")
+    usersRef = Firestore.firestore().collection("users")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.participants.removeAll()
+        
+        
+        
 //        participationListener = participationRef.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
 //            guard let snapshot = querySnapshot else {
 //                print("Error fetching events. error: \(error!.localizedDescription)")
