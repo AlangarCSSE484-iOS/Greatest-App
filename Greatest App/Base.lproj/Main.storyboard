@@ -82,7 +82,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="eAh-tM-bIx"/>
-                    <navigationItem key="navigationItem" title="Schedule of Events" id="UoU-aY-Kk0"/>
+                    <navigationItem key="navigationItem" title="Schedule of Events" id="UoU-aY-Kk0">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="t1T-Xv-4rp">
+                            <connections>
+                                <action selector="logout:" destination="cAk-KJ-HX3" id="SlT-9D-ova"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fuq-CA-xrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

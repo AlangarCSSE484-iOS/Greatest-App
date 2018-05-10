@@ -54,6 +54,29 @@ class EventsScheduleTableViewController: UITableViewController {
         })
     }
     
+    @IBAction func logout(_ sender: Any) {
+        let alertController = UIAlertController(title: "",
+                                                message: "Are you sure you want to logout?",
+                                                preferredStyle: .actionSheet)
+        
+        let addConfirmLogoutActionButton = UIAlertAction(title: "Logout",
+                                                         style: .destructive) {(action) in
+                                                            self.appDelegate.handleLogout()
+        }
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel",
+                                               style: .cancel,
+                                               handler: nil)
+        
+        alertController.addAction(addConfirmLogoutActionButton)
+        alertController.addAction(cancelActionButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
     func eventAdded (_ document: DocumentSnapshot) {
         let newEvent = GFEvent(documentSnapshot: document)
         events.append(newEvent)
