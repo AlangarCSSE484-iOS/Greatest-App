@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class ParticipationViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
     

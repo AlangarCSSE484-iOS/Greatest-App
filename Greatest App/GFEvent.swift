@@ -15,24 +15,23 @@ class GFEvent: NSObject {
     var name: String
     var time: String
     var location: String
-    var minParticipants: Int?
-    var maxParticipants: Int?
+    var participants: String
     var eventDescription: String
     var eventNumber: Int
     
     let nameKey = "name"
     let timeKey = "time"
     let locationKey = "location"
-    let minParticipantsKey = "minParticipantsKey"
-    let maxParticipantsKey = "maxParticipantsKey"
+    let participantsKey = "participants"
     let eventDescriptionKey = "eventDescription"
     let eventNumberKey = "eventNumber"
     
     
-    init(name: String, time: String, location:String, eventDescription: String, eventNumber: Int) {
+    init(name: String, time: String, location:String, eventDescription: String, participation: String, eventNumber: Int) {
         self.name = name
         self.time = time
         self.location = location
+        self.participants = participation
         self.eventDescription = eventDescription
         self.eventNumber = eventNumber
     }
@@ -64,6 +63,12 @@ class GFEvent: NSObject {
             self.eventDescription = "_"
         }
         
+        if (data[participantsKey]  != nil) {
+            self.participants = data[participantsKey] as! String
+        } else {
+            self.participants = "0"
+        }
+        
         if (data[eventNumberKey] != nil) {
             self.eventNumber = data[eventNumberKey] as! Int
         } else {
@@ -77,6 +82,7 @@ class GFEvent: NSObject {
                 timeKey: self.time,
                 locationKey: self.location,
                 eventDescriptionKey: self.eventDescription,
+                participantsKey: self.participants,
                 eventNumberKey: self.eventNumber]
     }
     

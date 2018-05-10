@@ -10,6 +10,7 @@ import UIKit
 import Material
 import Firebase
 import Rosefire
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     let REGISTRY_TOKEN = "4172dce5-7567-44f5-980b-cc885c2dcec3"

@@ -170,6 +170,7 @@ class EventsScheduleTableViewController: UITableViewController {
         addDocument(name: "Opening Event",
                     time: "10 pm",
                     location: "SRC arena",
+                 //   participants: "as many as you can get!",
                     eventDescription: "get excited for Greatest Floor!", eventNumber: 0)
         addDocument(name: "Scavenger Hunt",
                     time: "12 pm",
@@ -178,6 +179,7 @@ class EventsScheduleTableViewController: UITableViewController {
         addDocument(name: "Closing event",
                     time: "8pm Saturday",
                     location: "SRC arena",
+                  //  participants: "as many as you can get!",
                     eventDescription: "you might get to sleep soon", eventNumber: 4)
     }
     
