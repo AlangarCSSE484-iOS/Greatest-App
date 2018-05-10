@@ -22,8 +22,6 @@ class LoginViewController: UIViewController {
     }
     
     func prepareView() {
-        //        self.view.backgroundColor = Color.indigo.base
-        //        titleLabel.font = RobotoFont.thin(with: 36)
         // Rosefire
         rosefireLoginButton.title = "Rosefire Login"
         rosefireLoginButton.titleColor = .white

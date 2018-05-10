@@ -29,7 +29,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        hallLabel.text = currentHall
+        //        hallLabel.text = currentHall
         
         usersRef = Firestore.firestore().collection("users")
         let loggedinUser = Auth.auth().currentUser!
@@ -48,38 +48,41 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.participants.removeAll()
         
-        let currentUser = Auth.auth().currentUser!
+        let loggedinUser = Auth.auth().currentUser!
         
-        let query = usersRef.whereField("uid", isEqualTo: currentUser.uid)
+        let query = usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
         query.getDocuments { (querySnapshot, error) in
             guard let snapshot = querySnapshot else {
                 print("Error fetching documents: \(error!.localizedDescription)")
-                                return
+                return
             }
             snapshot.documentChanges.forEach{(docChange) in
-                let newUser = User(documentSnapshot: docChange.document)
-                self.hallLabel.text = newUser.hall
-        }
+                self.currentUser = User(documentSnapshot: docChange.document)
+                self.hallLabel.text = self.currentUser.hall
+            }
         }
         
         
-//        participationListener = participationRef.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
+//        usersListener = participationRef.where.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
 //            guard let snapshot = querySnapshot else {
 //                print("Error fetching events. error: \(error!.localizedDescription)")
 //                return
+//            }
+//            snapshot.documentChanges.forEach{(docChange) in
+//
 //            }
 //        })
     }
     
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        <#code#>
-//    }
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        <#code#>
+    //    }
     
     // MARK: TableView Information
     
@@ -91,7 +94,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: participationCellIdentifer, for: indexPath)
         }
-    
+        
         return cell
     }
     
