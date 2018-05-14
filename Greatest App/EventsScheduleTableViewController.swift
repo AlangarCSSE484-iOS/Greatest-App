@@ -21,8 +21,8 @@ class EventsScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  deleteEntireDatabase(collection: "events")
-     //   seedDatabase()
+        //  deleteEntireDatabase(collection: "events")
+        seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
     
@@ -162,16 +162,16 @@ class EventsScheduleTableViewController: UITableViewController {
     
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showDetailSegueIdentifier {
             if let indexPath = tableView.indexPathForSelectedRow{
                 (segue.destination as! EventDetailViewController).event = events[indexPath.row]
             }
         }
-     }
+    }
     
     //Mark: Helper functions to populate database
     
@@ -181,7 +181,6 @@ class EventsScheduleTableViewController: UITableViewController {
                 print("Error getting documents: \(err)")
                 return
             }
-            
             for document in querySnapshot!.documents {
                 print("Deleting \(document.documentID) => \(document.data())")
                 document.reference.delete()
@@ -193,26 +192,28 @@ class EventsScheduleTableViewController: UITableViewController {
         addDocument(name: "Opening Event",
                     time: "10 pm",
                     location: "SRC arena",
-                 //   participants: "as many as you can get!",
+                    participants: "as many as you can get!",
                     eventDescription: "get excited for Greatest Floor!", eventNumber: 0)
         addDocument(name: "Scavenger Hunt",
                     time: "12 pm",
                     location: "around campus",
+                    participants: "2",
                     eventDescription: "go find some stuff across campus using vague clues", eventNumber: 2)
         addDocument(name: "Closing event",
                     time: "8pm Saturday",
                     location: "SRC arena",
-                  //  participants: "as many as you can get!",
+                    participants: "as many as you can get!",
                     eventDescription: "you might get to sleep soon", eventNumber: 4)
     }
     
-    private func addDocument(name: String, time: String, location: String, eventDescription:String, eventNumber: Int){
+    private func addDocument(name: String, time: String, location: String, participants: String, eventDescription:String, eventNumber: Int){
         print("add Document called with \(name)")
         var ref: DocumentReference? = nil
         ref = Firestore.firestore().collection("events").addDocument(data: [
             "name": name,
             "time": time,
             "location": location,
+            "participants" : participants,
             "eventDescription": eventDescription,
             "eventNumber": eventNumber
         ]) { err in
@@ -224,3 +225,4 @@ class EventsScheduleTableViewController: UITableViewController {
         }
     }
 }
+
