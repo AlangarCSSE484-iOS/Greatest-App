@@ -17,7 +17,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     let headerCellIdentifer = "HeaderCell"
     let participationCellIdentifer = "ParticipationCell"
-    var participants = [User]()
+    var users = [User]()
     
     let currentHall = "Blumberg"
     var currentUser: User!
@@ -32,52 +32,59 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         super.viewDidLoad()
         //        hallLabel.text = currentHall
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         usersRef = Firestore.firestore().collection("users")
-        let loggedinUser = Auth.auth().currentUser!
+        //        let loggedinUser = Auth.auth().currentUser!
         
-        let query = usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
-        query.getDocuments { (querySnapshot, error) in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching documents: \(error!.localizedDescription)")
-                return
-            }
-            snapshot.documentChanges.forEach{(docChange) in
-                self.currentUser = User(documentSnapshot: docChange.document)
-                self.hallLabel.text = self.currentUser.hall
-            }
-        }
-        
-        
+        //        let query = usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
+        //        query.getDocuments { (querySnapshot, error) in
+        //            guard let snapshot = querySnapshot else {
+        //                print("Error fetching documents: \(error!.localizedDescription)")
+        //                return
+        //            }
+        //            snapshot.documentChanges.forEach{(docChange) in
+        //                self.currentUser = User(documentSnapshot: docChange.document)
+        //                self.hallLabel.text = self.currentUser.hall
+        //            }
+        //        }
+        let user = User(name: "test", hall: "test hall", room: 10, participated: true)
+        let user2 = User(name: "Person", hall: "test hall1", room: 202, participated: false)
+        users.append(user)
+        users.append(user2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.participants.removeAll()
-        
+        //        self.participants.removeAll()
+        //
         let loggedinUser = Auth.auth().currentUser!
         
-        let query = usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
-        query.getDocuments { (querySnapshot, error) in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching documents: \(error!.localizedDescription)")
-                return
-            }
-            snapshot.documentChanges.forEach{(docChange) in
-                self.currentUser = User(documentSnapshot: docChange.document)
-                self.hallLabel.text = self.currentUser.hall
-            }
+        usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
+            .getDocuments { (querySnapshot, error) in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching documents: \(error!.localizedDescription)")
+                    return
+                }
+                snapshot.documentChanges.forEach{(docChange) in
+                    self.currentUser = User(documentSnapshot: docChange.document)
+                    self.hallLabel.text = self.currentUser.hall
+                }
         }
         
-        
-//        usersListener = participationRef.where.order(by: "room",descending: true).addSnapshotListener({ (querySnapshot, error) in
-//            guard let snapshot = querySnapshot else {
-//                print("Error fetching events. error: \(error!.localizedDescription)")
-//                return
-//            }
-//            snapshot.documentChanges.forEach{(docChange) in
-//
-//            }
-//        })
+        //        usersRef.whereField("hall", isEqualTo: self.hallLabel)
+        //////            .order(by: "room")
+        //            .getDocuments { (querySnapshot, error) in
+        //                guard let snapshot = querySnapshot else {
+        //                    print("Error fetching documents: \(error!.localizedDescription)")
+        //                    return
+        //                }
+        //                snapshot.documentChanges.forEach{(docChange) in
+        //                    let user = User(documentSnapshot: docChange.document)
+        //                    self.participants.append(user)
+        //                }
+        //        }
     }
     
     
@@ -86,19 +93,6 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     //    }
     
     // MARK: TableView Information
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
-        
-        if (indexPath.section == 0) {
-            cell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifer, for: indexPath)
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: participationCellIdentifer, for: indexPath)
-        }
-        
-        return cell
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -107,9 +101,29 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         if (section == 0) {
             return 1
         }
-        
-        return participants.count
+        return users.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.section == 0) {
+            let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifer, for: indexPath)
+            return cell
+        } else {
+            let cell:ParticipationTableViewCell = tableView.dequeueReusableCell(withIdentifier: participationCellIdentifer, for: indexPath) as! ParticipationTableViewCell
+            let user = users[indexPath.row]
+            cell.nameLabel.text = user.name
+            cell.roomLabel.text = user.room.stringValue
+            print(user.participated)
+            if user.participated {
+                cell.checkmark.isSelected = true
+            } else {
+                cell.checkmark.isSelected = false
+            }
+            return cell
+        }
+    }
+    
+    
     
     
 }
