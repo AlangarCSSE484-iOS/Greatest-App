@@ -19,6 +19,7 @@
 		0A583FE02086CE1700AAF495 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FDF2086CE1700AAF495 /* Floor.swift */; };
 		0A583FE22086CE4600AAF495 /* GFEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A583FE12086CE4600AAF495 /* GFEvent.swift */; };
 		3216FEEF9B872FF03FD1E2F9 /* Pods_Greatest_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F069CE5AEE085989540752 /* Pods_Greatest_App.framework */; };
+		8D93AC3B20A822F700577D10 /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93AC3A20A822F700577D10 /* ParticipationTableViewCell.swift */; };
 		8DB3D1C12098D4090047097F /* ParticipationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1C02098D4090047097F /* ParticipationViewController.swift */; };
 		8DB3D1FF20A26B530047097F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FE20A26B530047097F /* LoginViewController.swift */; };
 		8DFA2F812086CC63003483B4 /* EventsScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */; };
@@ -40,6 +41,7 @@
 		0A583FDD2086CE0B00AAF495 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0A583FDF2086CE1700AAF495 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		0A583FE12086CE4600AAF495 /* GFEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEvent.swift; sourceTree = "<group>"; };
+		8D93AC3A20A822F700577D10 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationTableViewCell.swift; sourceTree = "<group>"; };
 		8DB3D1C02098D4090047097F /* ParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationViewController.swift; sourceTree = "<group>"; };
 		8DB3D1FE20A26B530047097F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsScheduleTableViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				0A583FE12086CE4600AAF495 /* GFEvent.swift */,
 				8DB3D1C02098D4090047097F /* ParticipationViewController.swift */,
 				8DB3D1FE20A26B530047097F /* LoginViewController.swift */,
+				8D93AC3A20A822F700577D10 /* ParticipationTableViewCell.swift */,
 			);
 			path = "Greatest App";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				0A583FC82086C99700AAF495 /* Greatest_App.xcdatamodeld in Sources */,
 				8DFA2F812086CC63003483B4 /* EventsScheduleTableViewController.swift in Sources */,
 				0A583FC52086C99700AAF495 /* AppDelegate.swift in Sources */,
+				8D93AC3B20A822F700577D10 /* ParticipationTableViewCell.swift in Sources */,
 				0A583FDE2086CE0B00AAF495 /* User.swift in Sources */,
 				0A583FE22086CE4600AAF495 /* GFEvent.swift in Sources */,
 				0A583FCA2086C99700AAF495 /* MasterViewController.swift in Sources */,
