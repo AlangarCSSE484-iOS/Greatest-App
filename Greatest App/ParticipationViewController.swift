@@ -18,10 +18,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     let headerCellIdentifer = "HeaderCell"
     let participationCellIdentifer = "ParticipationCell"
     var users = [User]()
-    
-    let currentHall = "Blumberg"
-    var currentUser: User!
-    
+
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hallLabel: UILabel!
     @IBOutlet weak var percentLabel: UILabel!
@@ -30,67 +27,59 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        hallLabel.text = currentHall
         
         tableView.delegate = self
         tableView.dataSource = self
         
         usersRef = Firestore.firestore().collection("users")
-        //        let loggedinUser = Auth.auth().currentUser!
-        
-        //        let query = usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
-        //        query.getDocuments { (querySnapshot, error) in
-        //            guard let snapshot = querySnapshot else {
-        //                print("Error fetching documents: \(error!.localizedDescription)")
-        //                return
-        //            }
-        //            snapshot.documentChanges.forEach{(docChange) in
-        //                self.currentUser = User(documentSnapshot: docChange.document)
-        //                self.hallLabel.text = self.currentUser.hall
-        //            }
-        //        }
-        let user = User(name: "test", hall: "test hall", room: 10, participated: true)
-        let user2 = User(name: "Person", hall: "test hall1", room: 202, participated: false)
-        users.append(user)
-        users.append(user2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        self.participants.removeAll()
-        //
-        let loggedinUser = Auth.auth().currentUser!
+        self.users.removeAll()
         
-        usersRef.whereField("uid", isEqualTo: loggedinUser.uid)
-            .getDocuments { (querySnapshot, error) in
-                guard let snapshot = querySnapshot else {
-                    print("Error fetching documents: \(error!.localizedDescription)")
-                    return
-                }
-                snapshot.documentChanges.forEach{(docChange) in
-                    self.currentUser = User(documentSnapshot: docChange.document)
-                    self.hallLabel.text = self.currentUser.hall
-                }
-        }
+        self.hallLabel.text = appDelegate.getCurrentUserHall()
         
-        //        usersRef.whereField("hall", isEqualTo: self.hallLabel)
-        //////            .order(by: "room")
-        //            .getDocuments { (querySnapshot, error) in
-        //                guard let snapshot = querySnapshot else {
-        //                    print("Error fetching documents: \(error!.localizedDescription)")
-        //                    return
-        //                }
-        //                snapshot.documentChanges.forEach{(docChange) in
-        //                    let user = User(documentSnapshot: docChange.document)
-        //                    self.participants.append(user)
-        //                }
-        //        }
+        usersListener = usersRef.whereField("hall", isEqualTo: appDelegate.getCurrentUserHall())
+                .order(by: "room")
+                .addSnapshotListener { (querySnapshot, error) in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching documents: \(error!.localizedDescription)")
+                        return
+                    }
+                    snapshot.documentChanges.forEach{(docChange) in
+                        if (docChange.type == .added) {
+                            print("New pic: \(docChange.document.data())")
+                            self.userAdded(docChange.document)
+                        } else if (docChange.type == .modified) {
+                            print("Modified pic: \(docChange.document.data())")
+                            self.userUpdated(docChange.document)
+                        }
+                    }
+                    self.tableView.reloadData()
+            }
     }
     
+    func userAdded(_ document: DocumentSnapshot) {
+        let newUser = User(documentSnapshot: document)
+        users.append(newUser)
+    }
     
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        <#code#>
-    //    }
+    func userUpdated(_ document: DocumentSnapshot) {
+        let modifiedUser = User(documentSnapshot: document)
+        
+        for user in users {
+            if (user.id == modifiedUser.id) {
+                user.participated = modifiedUser.participated
+                break
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        usersListener.remove()
+    }
     
     // MARK: TableView Information
     func numberOfSections(in tableView: UITableView) -> Int {
