@@ -1,3 +1,4 @@
+//MARK: GF Event
 //
 //  GFEvent.swift
 //  Greatest App
@@ -18,6 +19,7 @@ class GFEvent: NSObject {
     var participants: String
     var eventDescription: String
     var eventNumber: Int
+    var update: String?
     
     let nameKey = "name"
     let timeKey = "time"
@@ -25,15 +27,20 @@ class GFEvent: NSObject {
     let participantsKey = "participants"
     let eventDescriptionKey = "eventDescription"
     let eventNumberKey = "eventNumber"
+    let updateKey = "update"
     
     
-    init(name: String, time: String, location:String, eventDescription: String, participation: String, eventNumber: Int) {
+    init(name: String, time: String, location:String, eventDescription: String, participation: String, eventNumber: Int, update: String? ) {
         self.name = name
         self.time = time
         self.location = location
         self.participants = participation
         self.eventDescription = eventDescription
         self.eventNumber = eventNumber
+        self.update = update
+        if update == nil{
+            self.update = ""
+        }
     }
     
     init(documentSnapshot: DocumentSnapshot) {
@@ -75,6 +82,18 @@ class GFEvent: NSObject {
             self.eventNumber = 00
         }
         
+        if (data[updateKey]  != nil) {
+            self.update = data[updateKey] as? String
+        } else {
+            self.update = ""
+        }
+        
+        
+        
+    }
+    
+    func addUpdate(update:String) {
+        self.update = update
     }
     
     var data: [String: Any] {
@@ -83,7 +102,8 @@ class GFEvent: NSObject {
                 locationKey: self.location,
                 eventDescriptionKey: self.eventDescription,
                 participantsKey: self.participants,
-                eventNumberKey: self.eventNumber]
+                eventNumberKey: self.eventNumber,
+                updateKey: self.update ?? ""]
     }
     
 }
