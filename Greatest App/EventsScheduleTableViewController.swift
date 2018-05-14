@@ -22,7 +22,7 @@ class EventsScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //deleteEntireDatabase(collection: "events")
-        seedDatabase()
+        //seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
     

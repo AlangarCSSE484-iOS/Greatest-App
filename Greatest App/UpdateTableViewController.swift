@@ -36,13 +36,13 @@ class UpdateTableViewController: UITableViewController {
             }
             snapshot.documentChanges.forEach { (docChange) in
                 if (docChange.type == .added) {
-                    print("New event!!!: \(docChange.document.data())")
+                    print("New update!!!: \(docChange.document.data())")
                     self.eventAdded(docChange.document)
                 } else if (docChange.type == .modified) {
-                    print("Edited event: \(docChange.document.data())")
+                    print("Edited update: \(docChange.document.data())")
                     self.eventUpdated(docChange.document)
                 }else if (docChange.type == .removed) {
-                    print("Event deleted: \(docChange.document.data())")
+                    print("Event update: \(docChange.document.data())")
                     self.eventRemoved(docChange.document)
                 }
             }
@@ -55,7 +55,9 @@ class UpdateTableViewController: UITableViewController {
     
     func eventAdded (_ document: DocumentSnapshot) {
         let newEvent = GFEvent(documentSnapshot: document)
-        updatesArray.append(newEvent)
+        if (newEvent.update != ""){
+            updatesArray.append(newEvent)
+        }
     }
     
     func eventUpdated (_ document: DocumentSnapshot) {
