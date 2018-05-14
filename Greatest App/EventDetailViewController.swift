@@ -15,6 +15,8 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var participantInfo: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var updateLabel: UILabel!
+    
     
     var event: GFEvent?
     
@@ -32,7 +34,10 @@ class EventDetailViewController: UIViewController {
         timeLabel.text = event?.time
         descriptionLabel.text = event?.eventDescription
         participantInfo.text = event?.participants
-        
+        if (event?.update != ""){
+            updateLabel.text = event?.update
+            updateLabel.textColor = UIColor.red
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
