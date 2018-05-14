@@ -16,7 +16,7 @@
         <scene sceneID="hau-rl-xmu">
             <objects>
                 <navigationController id="MsY-Rz-lLs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" id="yNO-Zl-Org"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="yNO-Zl-Org"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1bN-UI-tTz">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,8 +81,14 @@
                             <outlet property="delegate" destination="cAk-KJ-HX3" id="5J0-gF-A0U"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Schedule" id="eAh-tM-bIx"/>
-                    <navigationItem key="navigationItem" title="Schedule of Events" id="UoU-aY-Kk0"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="eAh-tM-bIx"/>
+                    <navigationItem key="navigationItem" title="Schedule of Events" id="UoU-aY-Kk0">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="t1T-Xv-4rp">
+                            <connections>
+                                <action selector="logout:" destination="cAk-KJ-HX3" id="SlT-9D-ova"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fuq-CA-xrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +154,7 @@
         <scene sceneID="GO0-YV-tha">
             <objects>
                 <navigationController id="NZb-mF-8On" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Updates" id="K8T-dU-C0F"/>
+                    <tabBarItem key="tabBarItem" title="Updates" image="updates" id="K8T-dU-C0F"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bqn-Yh-nPv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -213,7 +219,7 @@
                             <outlet property="delegate" destination="zuR-aR-ncD" id="gdt-qf-7iL"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Updates" id="GEh-dL-dVZ"/>
+                    <tabBarItem key="tabBarItem" title="Updates" image="updates" id="GEh-dL-dVZ"/>
                     <navigationItem key="navigationItem" title="Updates" id="gF9-Du-Tv5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TyI-Yt-Nk4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,7 +230,7 @@
         <scene sceneID="5Em-qP-38Y">
             <objects>
                 <navigationController id="92r-Dd-lv7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Event Winners" id="FD3-uE-EjW"/>
+                    <tabBarItem key="tabBarItem" title="Event Winners" image="trophy" id="FD3-uE-EjW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AJK-a3-5Oj">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -293,7 +299,7 @@
                             <outlet property="delegate" destination="OK3-Kk-R0m" id="vLf-my-yaP"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Event Winners" id="een-l9-dSx"/>
+                    <tabBarItem key="tabBarItem" title="Event Winners" image="trophy" id="een-l9-dSx"/>
                     <navigationItem key="navigationItem" id="xmU-Gf-5gL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -305,7 +311,7 @@
         <scene sceneID="YQT-kM-iWy">
             <objects>
                 <navigationController id="fAF-9P-MhL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Participation" id="m6E-6n-beM"/>
+                    <tabBarItem key="tabBarItem" title="Participation" image="people" id="m6E-6n-beM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lGV-7h-BYQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -601,6 +607,12 @@
             <point key="canvasLocation" x="-1761" y="-474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="people" width="30" height="30"/>
+        <image name="schedule" width="30" height="30"/>
+        <image name="trophy" width="30" height="30"/>
+        <image name="updates" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Nt8-sd-tZo"/>
     </inferredMetricsTieBreakers>

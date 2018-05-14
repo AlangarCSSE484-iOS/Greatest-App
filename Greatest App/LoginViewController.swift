@@ -23,8 +23,6 @@ class LoginViewController: UIViewController {
     }
     
     func prepareView() {
-        //        self.view.backgroundColor = Color.indigo.base
-        //        titleLabel.font = RobotoFont.thin(with: 36)
         // Rosefire
         rosefireLoginButton.title = "Rosefire Login"
         rosefireLoginButton.titleColor = .white
@@ -53,20 +51,3 @@ class LoginViewController: UIViewController {
             )}
         }
     }
-    
-    // MARK: - Login Methods
-    //    func loginCompletionCallback(_ user: User?, _ error: Error?) {
-    //        if let error = error {
-    //            print("Error during log in: \(error.localizedDescription)")
-    //            let ac = UIAlertController(title: "Login Failed",
-    //                                       message: error.localizedDescription,
-    //                                       preferredStyle: .alert)
-    //            ac.addAction(UIAlertAction(title: "Okay",
-    //                                       style: .default,
-    //                                       handler: nil))
-    //            present(ac, animated: true)
-    //        } else {
-    //            appDelegate.handleLogin()
-    //        }
-    //    }
-//}
