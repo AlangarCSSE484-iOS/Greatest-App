@@ -21,7 +21,7 @@ class EventsScheduleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //  deleteEntireDatabase(collection: "events")
+        //deleteEntireDatabase(collection: "events")
         seedDatabase()
         eventsRef = Firestore.firestore().collection("events")
     }
@@ -89,6 +89,7 @@ class EventsScheduleTableViewController: UITableViewController {
                 e.name = modifiedEvent.name
                 e.time = modifiedEvent.time
                 e.location = modifiedEvent.location
+                e.update = modifiedEvent.update
                 e.eventDescription = modifiedEvent.eventDescription
                 break
             }
@@ -198,15 +199,23 @@ class EventsScheduleTableViewController: UITableViewController {
                     time: "12 pm",
                     location: "around campus",
                     participants: "2",
-                    eventDescription: "go find some stuff across campus using vague clues", eventNumber: 2)
+                    eventDescription: "go find some stuff across campus using vague clues", eventNumber: 20)
+        addDocument(name: "Puzzle",
+                    time: "10 pm",
+                    location: "your res hall",
+                    participants: "however many you want",
+                    eventDescription: "haha children, you thought you were clever...think again", eventNumber: 30,
+                    update: "Here's a hint: pineapples are green"
+                    )
+
         addDocument(name: "Closing event",
                     time: "8pm Saturday",
                     location: "SRC arena",
                     participants: "as many as you can get!",
-                    eventDescription: "you might get to sleep soon", eventNumber: 4)
+                    eventDescription: "you might get to sleep soon", eventNumber: 40)
     }
     
-    private func addDocument(name: String, time: String, location: String, participants: String, eventDescription:String, eventNumber: Int){
+    private func addDocument(name: String, time: String, location: String, participants: String, eventDescription:String, eventNumber: Int, update: String = ""){
         print("add Document called with \(name)")
         var ref: DocumentReference? = nil
         ref = Firestore.firestore().collection("events").addDocument(data: [
@@ -215,7 +224,8 @@ class EventsScheduleTableViewController: UITableViewController {
             "location": location,
             "participants" : participants,
             "eventDescription": eventDescription,
-            "eventNumber": eventNumber
+            "eventNumber": eventNumber,
+            "update": update
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
