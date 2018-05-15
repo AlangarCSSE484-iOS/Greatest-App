@@ -75,8 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 }
 
-
-
 extension UIViewController {
     var appDelegate : AppDelegate {
         get {

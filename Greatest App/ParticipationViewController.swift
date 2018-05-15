@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class ParticipationViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
     
+//    var userRef: DocumentReference!
     var usersRef: CollectionReference!
     var usersListener: ListenerRegistration!
     
@@ -108,11 +109,9 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
             } else {
                 cell.checkmark.isSelected = false
             }
+//            self.userRef.setData(user.data)
             return cell
         }
     }
-    
-    
-    
-    
 }
+

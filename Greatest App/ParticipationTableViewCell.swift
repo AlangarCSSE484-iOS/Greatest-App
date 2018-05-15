@@ -7,15 +7,16 @@
 //
 
 import UIKit
-
+import Firebase
 class ParticipationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var checkmark: UIButton!
-    
+
     // http://www.iostutorialjunction.com/2018/01/create-checkbox-in-swift-ios-sdk-tutorial-for-beginners.html
     @IBAction func checkmarkTapped(_ sender: UIButton) {
+        
         UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveLinear, animations: {
             sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         }) { (success) in
