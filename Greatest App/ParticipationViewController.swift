@@ -12,14 +12,14 @@ import FirebaseAuth
 
 class ParticipationViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
     
-//    var userRef: DocumentReference!
     var usersRef: CollectionReference!
+    //    var userListener: ListenerRegistration!
     var usersListener: ListenerRegistration!
     
     let headerCellIdentifer = "HeaderCell"
     let participationCellIdentifer = "ParticipationCell"
     var users = [User]()
-
+    
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hallLabel: UILabel!
     @IBOutlet weak var percentLabel: UILabel!
@@ -42,23 +42,23 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
         self.hallLabel.text = appDelegate.getCurrentUserHall()
         
         usersListener = usersRef.whereField("hall", isEqualTo: appDelegate.getCurrentUserHall())
-                .order(by: "room")
-                .addSnapshotListener { (querySnapshot, error) in
-                    guard let snapshot = querySnapshot else {
-                        print("Error fetching documents: \(error!.localizedDescription)")
-                        return
+            .order(by: "room")
+            .addSnapshotListener { (querySnapshot, error) in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching documents: \(error!.localizedDescription)")
+                    return
+                }
+                snapshot.documentChanges.forEach{(docChange) in
+                    if (docChange.type == .added) {
+                        print("New pic: \(docChange.document.data())")
+                        self.userAdded(docChange.document)
+                    } else if (docChange.type == .modified) {
+                        print("Modified pic: \(docChange.document.data())")
+                        self.userUpdated(docChange.document)
                     }
-                    snapshot.documentChanges.forEach{(docChange) in
-                        if (docChange.type == .added) {
-                            print("New pic: \(docChange.document.data())")
-                            self.userAdded(docChange.document)
-                        } else if (docChange.type == .modified) {
-                            print("Modified pic: \(docChange.document.data())")
-                            self.userUpdated(docChange.document)
-                        }
-                    }
-                    self.tableView.reloadData()
-            }
+                }
+                self.tableView.reloadData()
+        }
     }
     
     func userAdded(_ document: DocumentSnapshot) {
@@ -79,6 +79,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        //        userListener.remove()
         usersListener.remove()
     }
     
@@ -103,15 +104,42 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
             let user = users[indexPath.row]
             cell.nameLabel.text = user.name
             cell.roomLabel.text = user.room.stringValue
-            print(user.participated)
-            if user.participated {
-                cell.checkmark.isSelected = true
-            } else {
-                cell.checkmark.isSelected = false
-            }
-//            self.userRef.setData(user.data)
+            cell.checkmark.isSelected = user.participated
+            cell.checkmark.tag = indexPath.row
+            
             return cell
         }
     }
+    
+    // http://www.iostutorialjunction.com/2018/01/create-checkbox-in-swift-ios-sdk-tutorial-for-beginners.html
+    @IBAction func checkmarkTapped(_ sender: UIButton) {
+        users[sender.tag].participated = sender.isSelected
+        let user = users[sender.tag]
+        print("User:  \(user.participated)")
+        print("Sender: \(sender.isSelected)")
+        updateUser(user, sender)
+        
+        UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveLinear, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        }) { (success) in
+            UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveLinear, animations: {
+                sender.isSelected = !sender.isSelected
+                sender.transform = .identity
+            }, completion: nil)
+        }
+    }
+    
+    func updateUser(_ user: User, _ sender: UIButton) {
+        let userRef = usersRef.document(user.id!)
+//        user.participated = sender.isSelected
+        userRef.updateData(["participated" : user.participated]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
 }
 

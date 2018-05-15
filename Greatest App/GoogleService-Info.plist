@@ -23,15 +23,17 @@
 	<key>STORAGE_BUCKET</key>
 	<string>greatest-app-c8731.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:830168814789:ios:b08c20016b6ad083</string>
 	<key>DATABASE_URL</key>

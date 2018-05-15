@@ -429,7 +429,7 @@
                                                             <state key="normal" image="Checkmarkempty"/>
                                                             <state key="selected" image="Checkmark"/>
                                                             <connections>
-                                                                <action selector="checkmarkTapped:" destination="D2e-mo-byB" eventType="touchUpInside" id="2YE-Zf-hul"/>
+                                                                <action selector="checkmarkTapped:" destination="dyR-F2-ROU" eventType="touchUpInside" id="2jz-ER-P8r"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
