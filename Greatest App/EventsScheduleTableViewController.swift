@@ -194,12 +194,15 @@ class EventsScheduleTableViewController: UITableViewController {
                     time: "10 pm",
                     location: "SRC arena",
                     participants: "as many as you can get!",
-                    eventDescription: "get excited for Greatest Floor!", eventNumber: 0)
+                    eventDescription: "get excited for Greatest Floor!", eventNumber: 0,
+                    winner: "Blumburg")
         addDocument(name: "Scavenger Hunt",
                     time: "12 pm",
                     location: "around campus",
                     participants: "2",
-                    eventDescription: "go find some stuff across campus using vague clues", eventNumber: 20)
+                    eventDescription: "go find some stuff across campus using vague clues", eventNumber: 20,
+                    update: "Don't go into the woods, it's scary...",
+                    winner: "West 1 Best 1")
         addDocument(name: "Puzzle",
                     time: "10 pm",
                     location: "your res hall",
@@ -207,7 +210,6 @@ class EventsScheduleTableViewController: UITableViewController {
                     eventDescription: "haha children, you thought you were clever...think again", eventNumber: 30,
                     update: "Here's a hint: pineapples are green"
                     )
-
         addDocument(name: "Closing event",
                     time: "8pm Saturday",
                     location: "SRC arena",
@@ -215,7 +217,7 @@ class EventsScheduleTableViewController: UITableViewController {
                     eventDescription: "you might get to sleep soon", eventNumber: 40)
     }
     
-    private func addDocument(name: String, time: String, location: String, participants: String, eventDescription:String, eventNumber: Int, update: String = ""){
+    private func addDocument(name: String, time: String, location: String, participants: String, eventDescription:String, eventNumber: Int, update: String = "", winner: String = ""){
         print("add Document called with \(name)")
         var ref: DocumentReference? = nil
         ref = Firestore.firestore().collection("events").addDocument(data: [
@@ -225,7 +227,8 @@ class EventsScheduleTableViewController: UITableViewController {
             "participants" : participants,
             "eventDescription": eventDescription,
             "eventNumber": eventNumber,
-            "update": update
+            "update": update,
+            "winner": winner
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
