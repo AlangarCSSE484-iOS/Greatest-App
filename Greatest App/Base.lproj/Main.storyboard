@@ -253,7 +253,7 @@
         <!--Event Winners-->
         <scene sceneID="hLy-ZW-ojJ">
             <objects>
-                <tableViewController id="OK3-Kk-R0m" sceneMemberID="viewController">
+                <tableViewController id="OK3-Kk-R0m" customClass="EventWinnerTableViewController" customModule="Greatest_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ghy-d5-dYx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -643,6 +643,6 @@
         <image name="updates" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nt8-sd-tZo"/>
+        <segue reference="GAp-5K-J8C"/>
     </inferredMetricsTieBreakers>
 </document>

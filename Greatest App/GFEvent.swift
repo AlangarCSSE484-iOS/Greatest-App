@@ -20,6 +20,7 @@ class GFEvent: NSObject {
     var eventDescription: String
     var eventNumber: Int
     var update: String?
+    var winner: String?
     
     let nameKey = "name"
     let timeKey = "time"
@@ -28,9 +29,10 @@ class GFEvent: NSObject {
     let eventDescriptionKey = "eventDescription"
     let eventNumberKey = "eventNumber"
     let updateKey = "update"
+    let winnerKey = "winner"
     
     
-    init(name: String, time: String, location:String, eventDescription: String, participation: String, eventNumber: Int, update: String? ) {
+    init(name: String, time: String, location:String, eventDescription: String, participation: String, eventNumber: Int, update: String? = "", winner: String? = "") {
         self.name = name
         self.time = time
         self.location = location
@@ -38,9 +40,7 @@ class GFEvent: NSObject {
         self.eventDescription = eventDescription
         self.eventNumber = eventNumber
         self.update = update
-        if update == nil{
-            self.update = ""
-        }
+        self.winner = winner
     }
     
     init(documentSnapshot: DocumentSnapshot) {
@@ -88,12 +88,21 @@ class GFEvent: NSObject {
             self.update = ""
         }
         
+        if (data[winnerKey]  != nil) {
+            self.winner = data[winnerKey] as? String
+        } else {
+            self.winner = ""
+        }
         
         
     }
     
-    func addUpdate(update:String) {
+    func setUpdate(update:String) {
         self.update = update
+    }
+    
+    func setWinner(winner: String) {
+        self.winner = winner
     }
     
     var data: [String: Any] {
@@ -103,7 +112,8 @@ class GFEvent: NSObject {
                 eventDescriptionKey: self.eventDescription,
                 participantsKey: self.participants,
                 eventNumberKey: self.eventNumber,
-                updateKey: self.update ?? ""]
+                updateKey: self.update ?? "",
+                winnerKey: self.winner ?? ""]
     }
     
 }
