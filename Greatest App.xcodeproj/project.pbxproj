@@ -44,12 +44,6 @@
 		0A583FDF2086CE1700AAF495 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		0A583FE12086CE4600AAF495 /* GFEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEvent.swift; sourceTree = "<group>"; };
 		0A7C8CBC20A9E1480000A856 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		8D743AB620AAAA1B006D14B5 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationTableViewCell.swift; sourceTree = "<group>"; };
-=======
-		0ACF568E20AB2751004607C8 /* EventWinnerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWinnerTableViewController.swift; sourceTree = "<group>"; };
-		8D93AC3A20A822F700577D10 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationTableViewCell.swift; sourceTree = "<group>"; };
->>>>>>> b806bf23d2e11cb91a0e6a2592ff096dfe785271
 		8DB3D1C02098D4090047097F /* ParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationViewController.swift; sourceTree = "<group>"; };
 		8DB3D1FE20A26B530047097F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsScheduleTableViewController.swift; sourceTree = "<group>"; };
@@ -108,11 +102,6 @@
 				8DB3D1C02098D4090047097F /* ParticipationViewController.swift */,
 				8DB3D1FE20A26B530047097F /* LoginViewController.swift */,
 				0A7C8CBC20A9E1480000A856 /* UpdateTableViewController.swift */,
-<<<<<<< HEAD
-				8D743AB620AAAA1B006D14B5 /* ParticipationTableViewCell.swift */,
-=======
-				0ACF568E20AB2751004607C8 /* EventWinnerTableViewController.swift */,
->>>>>>> b806bf23d2e11cb91a0e6a2592ff096dfe785271
 			);
 			path = "Greatest App";
 			sourceTree = "<group>";
