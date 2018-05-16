@@ -104,34 +104,26 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
             let user = users[indexPath.row]
             cell.nameLabel.text = user.name
             cell.roomLabel.text = user.room.stringValue
-            cell.checkmark.isSelected = user.participated
             cell.checkmark.tag = indexPath.row
-            
+            if user.participated{
+                cell.checkmark.setImage(#imageLiteral(resourceName: "Checkmark"), for: .normal)
+                cell.checkmark.isSelected = true
+            } else {
+                cell.checkmark.setImage(#imageLiteral(resourceName: "Checkmarkempty"), for: .normal)
+                cell.checkmark.isSelected = false
+            }
             return cell
         }
     }
     
-    // http://www.iostutorialjunction.com/2018/01/create-checkbox-in-swift-ios-sdk-tutorial-for-beginners.html
     @IBAction func checkmarkTapped(_ sender: UIButton) {
-        users[sender.tag].participated = sender.isSelected
+        users[sender.tag].participated = !sender.isSelected
         let user = users[sender.tag]
-        print("User:  \(user.participated)")
-        print("Sender: \(sender.isSelected)")
         updateUser(user, sender)
-        
-        UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveLinear, animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        }) { (success) in
-            UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveLinear, animations: {
-                sender.isSelected = !sender.isSelected
-                sender.transform = .identity
-            }, completion: nil)
-        }
     }
     
     func updateUser(_ user: User, _ sender: UIButton) {
         let userRef = usersRef.document(user.id!)
-//        user.participated = sender.isSelected
         userRef.updateData(["participated" : user.participated]) { err in
             if let err = err {
                 print("Error updating document: \(err)")

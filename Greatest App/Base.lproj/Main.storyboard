@@ -426,8 +426,6 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-2c-nb7">
                                                             <rect key="frame" x="247.5" y="0.0" width="123.5" height="40"/>
-                                                            <state key="normal" image="Checkmarkempty"/>
-                                                            <state key="selected" image="Checkmark"/>
                                                             <connections>
                                                                 <action selector="checkmarkTapped:" destination="dyR-F2-ROU" eventType="touchUpInside" id="2jz-ER-P8r"/>
                                                             </connections>
@@ -635,8 +633,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Checkmark" width="30" height="30"/>
-        <image name="Checkmarkempty" width="30" height="30"/>
         <image name="people" width="30" height="30"/>
         <image name="schedule" width="30" height="30"/>
         <image name="trophy" width="30" height="30"/>
