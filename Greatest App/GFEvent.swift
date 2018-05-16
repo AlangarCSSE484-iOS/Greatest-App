@@ -72,7 +72,7 @@ class GFEvent: NSObject {
         
         if (data[participantsKey]  != nil) {
          //   self.participants = data[participantsKey] as! String
-            self.participants = "\(data[participantsKey] ?? "default")" as! String
+            self.participants = "\(data[participantsKey] ?? "default")" 
         } else {
             self.participants = "0"
         }
