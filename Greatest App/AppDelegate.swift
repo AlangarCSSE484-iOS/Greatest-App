@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func getCurrentUserHall() -> String {
-        return self.currentUser!.hall
+         return self.currentUser!.hall
     }
 }
 
