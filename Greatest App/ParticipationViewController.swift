@@ -89,7 +89,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
             }
         }
         let fraction = Double(k / Double(users.count))
-        self.participation = round(fraction * Double(100.0)) / 100.0
+        self.participation = round(fraction * Double(100.0))
         percentLabel.text = "\(self.participation)"
         progressBar.setProgress(Float(fraction), animated: false)
     }
