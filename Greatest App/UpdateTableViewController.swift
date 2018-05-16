@@ -18,10 +18,10 @@ class UpdateTableViewController: UITableViewController {
     let noUpdateCellIdentifier = "NoUpdateCell"
     let showDetailSegueIdentifier = "showEventDetailSegue"
     var updatesArray = [GFEvent]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         eventsRef = Firestore.firestore().collection("events")
     }
     
@@ -29,28 +29,29 @@ class UpdateTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         //tableView.reloadData()
         self.updatesArray.removeAll()
-        eventsListener = eventsRef.order(by: "eventNumber", descending: true).addSnapshotListener({ (querySnapshot, error) in
-            guard let snapshot = querySnapshot else {
-                print("Error fetching events. error: \(error!.localizedDescription)")
-                return
-            }
-            snapshot.documentChanges.forEach { (docChange) in
-                if (docChange.type == .added) {
-                    print("New update!!!: \(docChange.document.data())")
-                    self.eventAdded(docChange.document)
-                } else if (docChange.type == .modified) {
-                    print("Edited update: \(docChange.document.data())")
-                    self.eventUpdated(docChange.document)
-                }else if (docChange.type == .removed) {
-                    print("Event update: \(docChange.document.data())")
-                    self.eventRemoved(docChange.document)
+        eventsListener = eventsRef.order(by: "eventNumber", descending: true)
+            .addSnapshotListener({ (querySnapshot, error) in
+                guard let snapshot = querySnapshot else {
+                    print("Error fetching events. error: \(error!.localizedDescription)")
+                    return
                 }
-            }
-            self.updatesArray.sort(by: { (e1, e2) -> Bool in
-                return e1.eventNumber < e2.eventNumber
+                snapshot.documentChanges.forEach { (docChange) in
+                    if (docChange.type == .added) {
+                        print("New update!!!: \(docChange.document.data())")
+                        self.eventAdded(docChange.document)
+                    } else if (docChange.type == .modified) {
+                        print("Edited update: \(docChange.document.data())")
+                        self.eventUpdated(docChange.document)
+                    }else if (docChange.type == .removed) {
+                        print("Event update: \(docChange.document.data())")
+                        self.eventRemoved(docChange.document)
+                    }
+                }
+                self.updatesArray.sort(by: { (e1, e2) -> Bool in
+                    return e1.eventNumber < e2.eventNumber
+                })
+                self.tableView.reloadData()
             })
-            self.tableView.reloadData()
-        })
     }
     
     func eventAdded (_ document: DocumentSnapshot) {
@@ -88,18 +89,15 @@ class UpdateTableViewController: UITableViewController {
         eventsListener.remove()
     }
     
-
-
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return max(updatesArray.count, 1)
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : UITableViewCell
@@ -116,31 +114,8 @@ class UpdateTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-
-    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -152,5 +127,5 @@ class UpdateTableViewController: UITableViewController {
         }
     }
     
-
+    
 }
