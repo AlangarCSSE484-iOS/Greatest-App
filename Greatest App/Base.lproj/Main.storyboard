@@ -259,10 +259,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventWinnerCell" textLabel="D4G-1Y-R15" detailTextLabel="iC9-Nk-bvq" style="IBUITableViewCellStyleSubtitle" id="ULf-6y-Yjw">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventWinnerCell" textLabel="D4G-1Y-R15" detailTextLabel="iC9-Nk-bvq" style="IBUITableViewCellStyleSubtitle" id="ULf-6y-Yjw">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ULf-6y-Yjw" id="ZXv-rm-YtS">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ULf-6y-Yjw" id="ZXv-rm-YtS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -283,7 +283,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoEventWinnerCell" id="xri-tc-2ap">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoEventWinnerCell" id="xri-tc-2ap">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xri-tc-2ap" id="m75-Br-6uT">
@@ -639,6 +639,6 @@
         <image name="updates" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nt8-sd-tZo"/>
+        <segue reference="GAp-5K-J8C"/>
     </inferredMetricsTieBreakers>
 </document>
