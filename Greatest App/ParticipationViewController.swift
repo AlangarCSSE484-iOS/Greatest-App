@@ -13,7 +13,6 @@ import FirebaseAuth
 class ParticipationViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
     
     var usersRef: CollectionReference!
-    //    var userListener: ListenerRegistration!
     var usersListener: ListenerRegistration!
     
     let headerCellIdentifer = "HeaderCell"
@@ -29,7 +28,6 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // progressBar.setProgress(0.25, animated: false)
         progressBar.progress = 0.25
         
         tableView.delegate = self
@@ -98,7 +96,6 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //        userListener.remove()
         usersListener.remove()
     }
     
@@ -136,9 +133,12 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     }
     
     @IBAction func checkmarkTapped(_ sender: UIButton) {
-        users[sender.tag].participated = !sender.isSelected
-        let user = users[sender.tag]
-        updateUser(user, sender)
+        if (appDelegate.currentUser?.reslife)! {
+            let user = users[sender.tag]
+            user.participated = !sender.isSelected
+            updateUser(user, sender)
+        }
+        
     }
     
     func updateUser(_ user: User, _ sender: UIButton) {
