@@ -19,6 +19,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     let headerCellIdentifer = "HeaderCell"
     let participationCellIdentifer = "ParticipationCell"
     var users = [User]()
+    var participation = 0.0
     
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hallLabel: UILabel!
@@ -28,6 +29,8 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // progressBar.setProgress(0.25, animated: false)
+        progressBar.progress = 0.25
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,6 +60,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
                         self.userUpdated(docChange.document)
                     }
                 }
+                self.updateParticipation()
                 self.tableView.reloadData()
         }
     }
@@ -64,6 +68,7 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     func userAdded(_ document: DocumentSnapshot) {
         let newUser = User(documentSnapshot: document)
         users.append(newUser)
+        updateParticipation()
     }
     
     func userUpdated(_ document: DocumentSnapshot) {
@@ -75,6 +80,20 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
                 break
             }
         }
+        updateParticipation()
+    }
+    
+    func updateParticipation() {
+        var k = 0.0
+        for user in users{
+            if (user.participated){
+                k = k + 1
+            }
+        }
+        let fraction = Double(k / Double(users.count))
+        self.participation = fraction * Double(100.0)
+        percentLabel.text = "\(self.participation)"
+        progressBar.setProgress(Float(fraction), animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -134,4 +153,5 @@ class ParticipationViewController: UIViewController,  UITableViewDataSource, UIT
     }
     
 }
+
 
