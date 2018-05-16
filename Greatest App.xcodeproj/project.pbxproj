@@ -93,6 +93,8 @@
 		0A583FC32086C99700AAF495 /* Greatest App */ = {
 			isa = PBXGroup;
 			children = (
+				8DA9412F20ABD7E2000B4B23 /* Supporting */,
+				0A583FD22086C99700AAF495 /* LaunchScreen.storyboard */,
 				0ACF569020ABBBA6004607C8 /* EventWinnerTableViewController.swift */,
 				0A3D01E82088EADF006A96F8 /* GoogleService-Info.plist */,
 				0A583FC42086C99700AAF495 /* AppDelegate.swift */,
@@ -100,9 +102,6 @@
 				0A583FCB2086C99700AAF495 /* DetailViewController.swift */,
 				0A583FCD2086C99700AAF495 /* Main.storyboard */,
 				0A583FD02086C99700AAF495 /* Assets.xcassets */,
-				8DA9412B20ABD5FE000B4B23 /* icon@2x.png */,
-				8DA9412C20ABD5FE000B4B23 /* icon@3x.png */,
-				0A583FD22086C99700AAF495 /* LaunchScreen.storyboard */,
 				0A583FD52086C99700AAF495 /* Info.plist */,
 				0A583FC62086C99700AAF495 /* Greatest_App.xcdatamodeld */,
 				8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */,
@@ -124,6 +123,15 @@
 				C3F069CE5AEE085989540752 /* Pods_Greatest_App.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DA9412F20ABD7E2000B4B23 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				8DA9412B20ABD5FE000B4B23 /* icon@2x.png */,
+				8DA9412C20ABD5FE000B4B23 /* icon@3x.png */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		A1C7211940FDCBDCE000504F /* Pods */ = {

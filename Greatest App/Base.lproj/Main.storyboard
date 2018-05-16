@@ -103,7 +103,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1D-Oz-Sww" customClass="RaisedButton" customModule="Material">
-                                <rect key="frame" x="112" y="328.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="329" width="150" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="1Hm-Vm-HIH"/>
                                 </constraints>
@@ -114,11 +115,27 @@
                                     <action selector="rosefireLogin:" destination="t8F-FM-h1X" eventType="touchUpInside" id="Rxf-XJ-bx6"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GF-title" translatesAutoresizingMaskIntoConstraints="NO" id="lCw-Pk-O0m">
+                                <rect key="frame" x="41" y="109" width="294" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="y9c-hw-lyx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app" translatesAutoresizingMaskIntoConstraints="NO" id="k2z-fC-ZQJ">
+                                <rect key="frame" x="113" y="219" width="150" height="80"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="q1D-Oz-Sww" firstAttribute="centerX" secondItem="BgD-KQ-KGS" secondAttribute="centerX" id="XKS-dP-NPO"/>
+                            <constraint firstItem="q1D-Oz-Sww" firstAttribute="top" secondItem="k2z-fC-ZQJ" secondAttribute="bottom" constant="30" id="ZtP-sw-AhT"/>
+                            <constraint firstItem="k2z-fC-ZQJ" firstAttribute="top" secondItem="lCw-Pk-O0m" secondAttribute="bottom" constant="19" id="dRV-TT-Tas"/>
+                            <constraint firstItem="lCw-Pk-O0m" firstAttribute="centerX" secondItem="BgD-KQ-KGS" secondAttribute="centerX" id="kiV-Js-YVT"/>
+                            <constraint firstItem="k2z-fC-ZQJ" firstAttribute="centerX" secondItem="BgD-KQ-KGS" secondAttribute="centerX" id="rhC-XQ-YFk"/>
+                            <constraint firstItem="lCw-Pk-O0m" firstAttribute="top" secondItem="BgD-KQ-KGS" secondAttribute="top" constant="89" id="tcu-IO-ZIx"/>
                             <constraint firstItem="q1D-Oz-Sww" firstAttribute="centerY" secondItem="BgD-KQ-KGS" secondAttribute="centerY" id="v87-TP-Cs0"/>
+                            <constraint firstItem="lCw-Pk-O0m" firstAttribute="leading" secondItem="BgD-KQ-KGS" secondAttribute="leading" constant="41" id="vlQ-FN-LZM"/>
+                            <constraint firstItem="k2z-fC-ZQJ" firstAttribute="leading" secondItem="BgD-KQ-KGS" secondAttribute="leading" constant="113" id="x3s-7y-YmG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BgD-KQ-KGS"/>
                     </view>
@@ -128,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl4-4A-3i3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5694" y="231"/>
+            <point key="canvasLocation" x="-5695.1999999999998" y="230.73463268365819"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KDC-rW-wCQ">
@@ -633,6 +650,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GF-title" width="606" height="105"/>
+        <image name="app" width="239" height="114"/>
         <image name="people" width="30" height="30"/>
         <image name="schedule" width="30" height="30"/>
         <image name="trophy" width="30" height="30"/>
