@@ -24,6 +24,8 @@
 		3216FEEF9B872FF03FD1E2F9 /* Pods_Greatest_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3F069CE5AEE085989540752 /* Pods_Greatest_App.framework */; };
 		8D743AB720AAAA1B006D14B5 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8DA9412620ABA64F000B4B23 /* ParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9412520ABA64F000B4B23 /* ParticipationTableViewCell.swift */; };
+		8DA9412D20ABD5FE000B4B23 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA9412B20ABD5FE000B4B23 /* icon@2x.png */; };
+		8DA9412E20ABD5FE000B4B23 /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA9412C20ABD5FE000B4B23 /* icon@3x.png */; };
 		8DB3D1C12098D4090047097F /* ParticipationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1C02098D4090047097F /* ParticipationViewController.swift */; };
 		8DB3D1FF20A26B530047097F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB3D1FE20A26B530047097F /* LoginViewController.swift */; };
 		8DFA2F812086CC63003483B4 /* EventsScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */; };
@@ -48,6 +50,8 @@
 		0A7C8CBC20A9E1480000A856 /* UpdateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewController.swift; sourceTree = "<group>"; };
 		0ACF569020ABBBA6004607C8 /* EventWinnerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventWinnerTableViewController.swift; sourceTree = "<group>"; };
 		8DA9412520ABA64F000B4B23 /* ParticipationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipationTableViewCell.swift; sourceTree = "<group>"; };
+		8DA9412B20ABD5FE000B4B23 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		8DA9412C20ABD5FE000B4B23 /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
 		8DB3D1C02098D4090047097F /* ParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipationViewController.swift; sourceTree = "<group>"; };
 		8DB3D1FE20A26B530047097F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DFA2F802086CC63003483B4 /* EventsScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsScheduleTableViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				0A583FCB2086C99700AAF495 /* DetailViewController.swift */,
 				0A583FCD2086C99700AAF495 /* Main.storyboard */,
 				0A583FD02086C99700AAF495 /* Assets.xcassets */,
+				8DA9412B20ABD5FE000B4B23 /* icon@2x.png */,
+				8DA9412C20ABD5FE000B4B23 /* icon@3x.png */,
 				0A583FD22086C99700AAF495 /* LaunchScreen.storyboard */,
 				0A583FD52086C99700AAF495 /* Info.plist */,
 				0A583FC62086C99700AAF495 /* Greatest_App.xcdatamodeld */,
@@ -192,8 +198,10 @@
 			files = (
 				0A583FD42086C99700AAF495 /* LaunchScreen.storyboard in Resources */,
 				0A3D01E92088EAE0006A96F8 /* GoogleService-Info.plist in Resources */,
+				8DA9412E20ABD5FE000B4B23 /* icon@3x.png in Resources */,
 				0A583FD12086C99700AAF495 /* Assets.xcassets in Resources */,
 				0A583FCF2086C99700AAF495 /* Main.storyboard in Resources */,
+				8DA9412D20ABD5FE000B4B23 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
