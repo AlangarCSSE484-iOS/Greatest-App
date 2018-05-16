@@ -324,7 +324,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Event Winners" image="trophy" id="een-l9-dSx"/>
-                    <navigationItem key="navigationItem" id="xmU-Gf-5gL"/>
+                    <navigationItem key="navigationItem" title="Event Winners" id="xmU-Gf-5gL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYq-j8-jQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
